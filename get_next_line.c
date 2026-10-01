@@ -6,18 +6,11 @@
 /*   By: nkreter <nkreter@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/28 23:58:39 by nkreter           #+#    #+#             */
-/*   Updated: 2026/09/30 02:42:37 by nkreter          ###   ########.fr       */
+/*   Updated: 2026/10/02 01:09:01 by nkreter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
-static char	*free_needed(char *str)
-{
-	if (str)
-		free(str);
-	return (NULL);
-}
 
 static char	*read_line(int fd, char *stash)
 {
@@ -31,7 +24,10 @@ static char	*read_line(int fd, char *stash)
 	{
 		bytes_read = read(fd, buf, BUFFER_SIZE);
 		if (bytes_read < 0)
+		{
+			free(buf);
 			return (free_needed(stash));
+		}
 		else if (bytes_read == 0)
 			break ;
 		buf[bytes_read] = '\0';
@@ -75,8 +71,8 @@ char	*get_next_line(int fd)
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	stash = read_line(fd, stash);
-	if (!stash)
-		return (NULL);
+	if (!stash || *stash == '\0')
+		return (free_needed(stash));
 	res = take_line(&stash);
 	if (!res)
 		return (free_needed(stash));
