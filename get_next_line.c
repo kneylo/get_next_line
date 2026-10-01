@@ -6,7 +6,7 @@
 /*   By: nkreter <nkreter@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/28 23:58:39 by nkreter           #+#    #+#             */
-/*   Updated: 2026/10/02 01:09:01 by nkreter          ###   ########.fr       */
+/*   Updated: 2026/10/02 01:29:42 by nkreter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static char	*read_line(int fd, char *stash)
 	buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!buf)
 		return (free_needed(stash));
-	while (include_eol(stash) == -1)
+	while (include_nl(stash) == -1)
 	{
 		bytes_read = read(fd, buf, BUFFER_SIZE);
 		if (bytes_read < 0)
@@ -45,7 +45,7 @@ static char	*take_line(char **stash)
 	char	*tmp;
 	int		len;
 
-	len = include_eol(*stash);
+	len = include_nl(*stash);
 	if (len == -1)
 	{
 		res = *stash;

@@ -6,7 +6,7 @@
 /*   By: nkreter <nkreter@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/28 23:59:33 by nkreter           #+#    #+#             */
-/*   Updated: 2026/10/02 00:55:37 by nkreter          ###   ########.fr       */
+/*   Updated: 2026/10/02 01:29:26 by nkreter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ char	*free_needed(char *str)
 	return (NULL);
 }
 
-int	include_eol(char *s)
+int	include_nl(char *s)
 {
 	int	i;
 
