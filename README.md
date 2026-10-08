@@ -140,9 +140,9 @@ and returns:
 
 ## Resources
 
-My main sources of information on the web are these links below, AI was never used to create any code, only a very few times to name things better or correct spelling/grammar mistakes.
+My main sources of information on the web are some github of my peers and theses links below, AI was used more for a directive line or to find other way to attack the problem, never to write code except for some part of the readme.	 
 
-[ADD SOURCE HERE]
+[gitbook 42](https://42-cursus.gitbook.io/guide)
 
 [ADD SOURCE HERE]
 
@@ -152,10 +152,4 @@ My main sources of information on the web are these links below, AI was never us
 
 First I tested the function myself using different text and different `BUFFER_SIZE` values.
 
-Then I call other people to talk about the project, asking advices, compared how we did it, compared ourselves 
-
-And I tested with a tester I found on github
-
-[GNL tester](https://github.com/Tripouille/gnlTester)
-
-[ADD TESTER / TESTING SOURCE HERE]
+Then I call other people to talk about the project, asking advices, compared how we did it and compared ourselves. 

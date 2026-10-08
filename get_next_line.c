@@ -6,7 +6,7 @@
 /*   By: nkreter <nkreter@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/28 23:58:39 by nkreter           #+#    #+#             */
-/*   Updated: 2026/10/02 16:06:33 by nkreter          ###   ########.fr       */
+/*   Updated: 2026/10/09 00:12:05 by nkreter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ static char	*read_line(int fd, char *stash)
 		else if (bytes_read == 0)
 			break ;
 		buf[bytes_read] = '\0';
+		//printf("READ: %ld bytes -> [%s]\n", bytes_read, buf); 
 		stash = ft_strjoin(stash, buf);
 		if (!stash)
 			return (free_needed(buf));
@@ -72,7 +73,11 @@ char	*get_next_line(int fd)
 		return (NULL);
 	stash = read_line(fd, stash);
 	if (!stash || *stash == '\0')
-		return (free_needed(stash));
+	{
+		free(stash);
+		stash = NULL;
+		return (NULL);	
+	}
 	res = take_line(&stash);
 	if (!res)
 		return (free_needed(stash));
@@ -80,14 +85,14 @@ char	*get_next_line(int fd)
 }
 
 /*pour tester visuellement
-rajouter a ligne 38: printf("READ: %ld bytes -> [%s]\n", bytes_read, buf); 
+rajouter a ligne 34: printf("READ: %ld bytes -> [%s]\n", bytes_read, buf); 
 int main(void)
 {	
 	int fd;
 	int line_num;
 	char *next_line;
 
-	fd = open("test.txt", O_RDONLY, 0644);
+	fd = open("giant_line.txt", O_RDONLY, 0644);
 	if (fd == -1)
 		return (printf("fd not opened\n"), 1);
 	line_num = 1;

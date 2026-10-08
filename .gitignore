@@ -3,7 +3,7 @@
 
 # pdf + tester
 *.pdf
-gnlTester/*
+gnlTester/
 
 # Object files
 *.o
