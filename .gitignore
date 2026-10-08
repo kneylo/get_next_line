@@ -1,8 +1,9 @@
 # Prerequisites
 *.d
 
-# pdf
+# pdf + tester
 *.pdf
+gnlTester/*
 
 # Object files
 *.o
