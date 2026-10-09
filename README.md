@@ -140,16 +140,18 @@ and returns:
 
 ## Resources
 
-My main sources of information on the web are some github of my peers and theses links below, AI was used more for a directive line or to find other way to attack the problem, never to write code except for some part of the readme.	 
+My main sources of information was making discussion with others students and comparing in a good way our code, the man, and on the web I checked some github of my peers and theses links below, AI was used more for a directive line or to find other way to attack the problem, never to write code except for some part of the readme.
 
 [gitbook 42](https://42-cursus.gitbook.io/guide)
 
-[ADD SOURCE HERE]
-
-[ADD SOURCE HERE]
+[linux manual page](https://man7.org/linux/man-pages/man2/read.2.html)
 
 ## Testing
 
 First I tested the function myself using different text and different `BUFFER_SIZE` values.
 
-Then I call other people to talk about the project, asking advices, compared how we did it and compared ourselves. 
+Then I call other people to talk about the project, asking advices, compared how we did it and compared ourselves.
+
+I also tested with a tester I found online, there's one edgecase, with a giant line and BUFFER_SIZE at 1, not working but after discussing with other students, we found out it's the tester fault and not the code itself.
+
+[Tripouille's tester](https://github.com/Tripouille/gnlTester)

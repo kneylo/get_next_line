@@ -6,7 +6,7 @@
 /*   By: nkreter <nkreter@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/28 23:58:39 by nkreter           #+#    #+#             */
-/*   Updated: 2026/10/09 00:12:05 by nkreter          ###   ########.fr       */
+/*   Updated: 2026/10/10 00:49:37 by nkreter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,9 +74,8 @@ char	*get_next_line(int fd)
 	stash = read_line(fd, stash);
 	if (!stash || *stash == '\0')
 	{
-		free(stash);
-		stash = NULL;
-		return (NULL);	
+		stash = free_needed(stash);
+		return (NULL);
 	}
 	res = take_line(&stash);
 	if (!res)
