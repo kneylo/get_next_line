@@ -6,11 +6,11 @@
 /*   By: nkreter <nkreter@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/10 01:26:26 by nkreter           #+#    #+#             */
-/*   Updated: 2026/10/10 01:26:34 by nkreter          ###   ########.fr       */
+/*   Updated: 2026/10/10 01:39:49 by nkreter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 size_t	ft_strlen(const char *s)
 {

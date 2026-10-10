@@ -6,61 +6,64 @@
 /*   By: nkreter <nkreter@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/10 01:29:07 by nkreter           #+#    #+#             */
-/*   Updated: 2026/10/10 01:34:46 by nkreter          ###   ########.fr       */
+/*   Updated: 2026/10/10 01:45:31 by nkreter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
-static char	*read_line(int fd, char *stash[fd])
+static char	*read_line(int fd, char *stash)
 {
 	char	*buf;
 	ssize_t	bytes_read;
 
 	buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!buf)
-		return (free_needed(stash[fd]));
-	while (include_nl(stash[fd]) == -1)
+		return (free_needed(stash));
+	while (include_nl(stash) == -1)
 	{
 		bytes_read = read(fd, buf, BUFFER_SIZE);
 		if (bytes_read < 0)
 		{
 			free(buf);
-			return (free_needed(stash[fd]));
+			return (free_needed(stash));
 		}
 		else if (bytes_read == 0)
 			break ;
 		buf[bytes_read] = '\0';
-		//printf("READ: %ld bytes -> [%s]\n", bytes_read, buf); 
-		stash[fd] = ft_strjoin(stash[fd], buf);
-		if (!stash[fd])
+		//printf("READ: %ld bytes -> [%s]\n", bytes_read, buf);
+		stash = ft_strjoin(stash, buf);
+		if (!stash)
 			return (free_needed(buf));
 	}
 	free(buf);
-	return (stash[fd]);
+	return (stash);
 }
 
-static char	*take_line(char **stash[fd])
+static char	*take_line(char **stash)
 {
 	char	*res;
 	char	*tmp;
 	int		len;
 
-	len = include_nl(*stash[fd]);
+	len = include_nl(*stash);
 	if (len == -1)
 	{
-		res = *stash[fd];
-		*stash[fd] = NULL;
+		res = *stash;
+		*stash = NULL;
 		return (res);
 	}
-	res = ft_substr(*stash[fd], 0, len);
+	res = ft_substr(*stash, 0, len);
 	if (!res)
-		return (free_needed(*stash[fd]));
-	tmp = ft_substr(*stash[fd], len, ft_strlen(*stash[fd]));
+	{
+		res = free_needed(res);
+		return (NULL);
+	}
+	tmp = ft_substr(*stash, len, ft_strlen(*stash));
 	if (!tmp)
 		return (free_needed(res));
-	free(*stash[fd]);
-	*stash[fd] = tmp;
+	free(*stash);
+	*stash = tmp;
 	return (res);
 }
 
