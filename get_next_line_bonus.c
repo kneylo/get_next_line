@@ -6,7 +6,7 @@
 /*   By: nkreter <nkreter@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/10 01:29:07 by nkreter           #+#    #+#             */
-/*   Updated: 2026/10/10 01:45:31 by nkreter          ###   ########.fr       */
+/*   Updated: 2026/10/12 15:11:04 by nkreter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ static char	*read_line(int fd, char *stash)
 		else if (bytes_read == 0)
 			break ;
 		buf[bytes_read] = '\0';
-		//printf("READ: %ld bytes -> [%s]\n", bytes_read, buf);
 		stash = ft_strjoin(stash, buf);
 		if (!stash)
 			return (free_needed(buf));
@@ -85,3 +84,5 @@ char	*get_next_line(int fd)
 		return (free_needed(stash[fd]));
 	return (res);
 }
+
+//printf("READ: %ld bytes -> [%s]\n", bytes_read, buf)
