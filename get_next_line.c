@@ -84,7 +84,7 @@ char	*get_next_line(int fd)
 }
 
 /*pour tester visuellement
-rajouter a ligne 34: printf("READ: %ld bytes -> [%s]\n", bytes_read, buf); 
+rajouter a ligne 34: printf("READ: %ld bytes -> [%s]\n", bytes_read, buf);
 int main(void)
 {	
 	int fd;
@@ -93,7 +93,7 @@ int main(void)
 
 	fd = open("giant_line.txt", O_RDONLY, 0644);
 	if (fd == -1)
-		return (printf("fd not opened\n"), 1);
+		return (perror("fd problem on opening"), 1);
 	line_num = 1;
 	printf("%d\n", BUFFER_SIZE);
 	while (1)

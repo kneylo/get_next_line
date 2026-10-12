@@ -11,10 +11,6 @@
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
-#include <fcntl.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
 
 int	main(void)
 {
@@ -25,7 +21,7 @@ int	main(void)
 	int		i;
 
 	fd1 = open("test.txt", O_RDONLY);
-	fd2 = open("giant_line.txt", O_RDONLY);
+	fd2 = open("test.txt", O_RDONLY);
 	fd3 = open("test.txt", O_RDONLY);
 	if (fd1 == -1 || fd2 == -1 || fd3 == -1)
 		return (perror("open"), 1);
