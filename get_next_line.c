@@ -6,7 +6,7 @@
 /*   By: nkreter <nkreter@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/28 23:58:39 by nkreter           #+#    #+#             */
-/*   Updated: 2026/10/12 15:11:22 by nkreter          ###   ########.fr       */
+/*   Updated: 2026/10/15 21:52:20 by nkreter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,9 +82,7 @@ char	*get_next_line(int fd)
 	return (res);
 }
 
-/*pour tester visuellement
-rajouter a ligne 34: printf("READ: %ld bytes -> [%s]\n", bytes_read, buf);
-int main(void)
+/*int main(void)
 {	
 	int fd;
 	int line_num;
